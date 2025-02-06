@@ -1,8 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Admin Dashboard
 
-## Getting Started
+A modern, responsive admin dashboard built with Next.js 15 and TypeScript, featuring authentication,
+product management, and a clean UI.
 
-First, run the development server:
+## 🚀 Features
+
+- **Authentication**
+
+  - Login with demo credentials from JSONPlaceholder API
+  - Protected routes and sessions
+  - Form validation with React Hook Form
+
+- **Product Management**
+
+  - CRUD operations for products
+  - Sort by name and price
+  - Search functionality
+  - Detailed product view
+  - Dynamic data handling
+
+- **Responsive Design**
+  - Mobile-first approach
+  - Sidebar navigation with mobile support
+  - Smooth animations with Framer Motion
+  - Clean and modern UI with Tailwind CSS
+
+## 🛠️ Tech Stack
+
+- **Framework**: [Next.js 15](https://nextjs.org/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Form Handling**: [React Hook Form](https://react-hook-form.com/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Icons**: [React Icons](https://react-icons.github.io/react-icons/)
+- **Toast Notifications**: [React Hot Toast](https://react-hot-toast.com/)
+- **API**: [JSONPlaceholder](https://jsonplaceholder.typicode.com/)
+
+## 🚦 Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- npm/yarn/pnpm
+
+### Installation
+
+1. Clone the repository
+
+```bash
+git clone <repository-url>
+```
+
+2. Install dependencies
+
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+3. Run the development server
 
 ```bash
 npm run dev
@@ -10,27 +69,48 @@ npm run dev
 yarn dev
 # or
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) with your browser
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📁 Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/                   # App router pages
+├── components/
+│   ├── auth/             # Authentication components
+│   └── dashboard/        # Dashboard components
+├── context/              # React Context providers
+├── types/                # TypeScript type definitions
+└── utils/                # Utility functions
+```
 
-## Learn More
+## 🔐 Authentication
 
-To learn more about Next.js, take a look at the following resources:
+The app uses JSONPlaceholder API for demo authentication:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Use the "Demo Credentials" button to auto-fill login form
+- Any user email from JSONPlaceholder will work
+- Password validation is mocked for demo purposes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 💻 Usage
 
-## Deploy on Vercel
+1. **Login**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   - Use demo credentials or any JSONPlaceholder user email
+   - Navigate through protected dashboard routes
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+2. **Product Management**
+   - View, add, edit, and delete products
+   - Sort products by name or price
+   - Search products by name
+   - View detailed product information
+
+## 🎨 UI Components
+
+- Responsive sidebar navigation
+- Modal dialogs for forms
+- Toast notifications for feedback
+- Loading states and animations
+- Form validation feedback
