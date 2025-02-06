@@ -182,40 +182,65 @@ export default function ProductsPage() {
 
       {/* Products Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {loading
-          ? Array.from({ length: 6 }).map((_, index) => <CardSkeleton key={index} />)
-          : sortedProducts.map((product) => (
-              <div
-                key={product?.id}
-                className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-200"
-              >
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                    {product?.name || 'N/A'}
-                  </h3>
-                  <div className="space-y-2 text-sm text-gray-600">
-                    <p>Price: {product?.data?.price ? `$${product.data.price}` : 'N/A'}</p>
-                    <p>Color: {getColor(product?.data) || 'N/A'}</p>
-                    <p>Capacity: {getCapacity(product?.data) || 'N/A'}</p>
-                  </div>
-                  <div className="mt-4 flex justify-end space-x-2">
-                    <button
-                      onClick={() => setSelectedProduct(product)}
-                      className="text-blue-600 hover:text-blue-800 transition-colors"
-                    >
-                      <FiEye className="w-5 h-5" />
-                    </button>
-                    <button
-                      onClick={() => handleDelete(product?.id)}
-                      disabled={deletingId === product?.id}
-                      className="text-red-600 hover:text-red-800 transition-colors disabled:opacity-50"
-                    >
-                      <FiTrash2 className="w-5 h-5" />
-                    </button>
-                  </div>
+        {loading ? (
+          Array.from({ length: 6 }).map((_, index) => <CardSkeleton key={index} />)
+        ) : sortedProducts.length > 0 ? (
+          sortedProducts.map((product) => (
+            <div
+              key={product?.id}
+              className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-200"
+            >
+              <div className="p-6">
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                  {product?.name || 'N/A'}
+                </h3>
+                <div className="space-y-2 text-sm text-gray-600">
+                  <p>Price: {product?.data?.price ? `$${product.data.price}` : 'N/A'}</p>
+                  <p>Color: {getColor(product?.data) || 'N/A'}</p>
+                  <p>Capacity: {getCapacity(product?.data) || 'N/A'}</p>
+                </div>
+                <div className="mt-4 flex justify-end space-x-2">
+                  <button
+                    onClick={() => setSelectedProduct(product)}
+                    className="text-blue-600 hover:text-blue-800 transition-colors"
+                  >
+                    <FiEye className="w-5 h-5" />
+                  </button>
+                  <button
+                    onClick={() => handleDelete(product?.id)}
+                    disabled={deletingId === product?.id}
+                    className="text-red-600 hover:text-red-800 transition-colors disabled:opacity-50"
+                  >
+                    <FiTrash2 className="w-5 h-5" />
+                  </button>
                 </div>
               </div>
-            ))}
+            </div>
+          ))
+        ) : (
+          <div className="col-span-full flex flex-col items-center justify-center py-12 px-4">
+            <div className="text-center">
+              <h3 className="mt-2 text-lg font-medium text-gray-900">No products found</h3>
+              <p className="mt-1 text-sm text-gray-500">
+                {searchTerm
+                  ? 'Try adjusting your search terms'
+                  : 'Get started by adding your first product'}
+              </p>
+              <div className="mt-6">
+                <button
+                  onClick={() => setIsAddModalOpen(true)}
+                  className="inline-flex items-center px-4 py-2 border border-transparent 
+                           shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 
+                           hover:bg-blue-700 focus:outline-none focus:ring-2 
+                           focus:ring-offset-2 focus:ring-blue-500"
+                >
+                  <FiPlus className="-ml-1 mr-2 h-5 w-5" />
+                  Add Product
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Modals */}
