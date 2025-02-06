@@ -54,7 +54,7 @@ export default function AddProductModal({ isOpen, onClose, onAdd }: AddProductMo
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
-          className="fixed inset-0 -top-10 bg-black/50 z-50"
+          className="fixed inset-0 -top-6 bg-black/50 z-50 overflow-y-auto"
         >
           <div
             className="flex items-center justify-center min-h-screen p-4"
