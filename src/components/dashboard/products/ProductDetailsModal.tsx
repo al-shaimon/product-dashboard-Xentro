@@ -18,7 +18,7 @@ export default function ProductDetailsModal({ product, onClose }: ProductDetails
   };
 
   // Function to format field value for display
-  const formatFieldValue = (key: string, value: any) => {
+  const formatFieldValue = (key: string, value: string | number | undefined | null) => {
     if (value === null || value === undefined) return 'N/A';
     if (key.toLowerCase().includes('price')) return `$${value}`;
     if (typeof value === 'boolean') return value ? 'Yes' : 'No';
